@@ -7,7 +7,7 @@ dotenv.config();
 
 @Module({
   imports: [
-    MongooseModule.forRoot(process.env.DB),
+    MongooseModule.forRoot('mongodb+srv://agentheo:DpENWosEnRtghWhg@cluster0.5ge86ol.mongodb.net/?retryWrites=true&w=majority'),
   ],
   providers: [...databaseProviders],
   exports: [...databaseProviders],

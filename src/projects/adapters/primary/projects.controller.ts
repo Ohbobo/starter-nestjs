@@ -34,7 +34,7 @@ export class ProjectController{
                 console.log(newProject)
                 return newProject;
             } catch (error) {
-                throw new BadRequestException("Erreur lors du redimensionnement de l'image");
+                throw new BadRequestException(error);
             }
     }
 

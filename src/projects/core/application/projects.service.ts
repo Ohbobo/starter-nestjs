@@ -31,7 +31,7 @@ export class ProjectsService {
           }
       
           const updatedProject = { ...findProjectById, ...updateProjectDto };
-          await this.projectsRepository.updateProject(updatedProject);
+          await this.projectsRepository.updateProject(id, updatedProject);
           return updatedProject;
         } catch (error) {
           throw new Error("Une erreur s'est produite lors de la mise à jour du projet : " + error.message);

@@ -5,6 +5,6 @@ export interface IProjectsRepository {
     findById(id: string): Promise<IProjectCard>;
     getAllProjects(): Promise<IProjectCard[]>;
     createProject(projectDto: ProjectDto):Promise<IProjectCard>;
-    updateProject(project: IProjectCard): Promise<void>;
+    updateProject(id: string, project: IProjectCard): Promise<IProjectCard>;
     deleteProject(id: string): Promise<void>;
 }

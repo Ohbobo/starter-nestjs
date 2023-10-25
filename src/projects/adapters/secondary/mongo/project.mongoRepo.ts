@@ -27,9 +27,9 @@ export class MongooseProjectRepository implements IProjectsRepository {
         return saveNewCard.toJSON() as IProjectCard;    
     }
 
-    async updateProject(id: string, project: IProjectCard): Promise<IProjectCard> {
+    async updateProject(project: IProjectCard): Promise<IProjectCard> {
         try {
-            const updatedCard = await this.projectModel.findByIdAndUpdate(id, project, { new: true }).exec();
+            const updatedCard = await this.projectModel.findByIdAndUpdate(project._id, project, { new: true }).exec();
             if(!updatedCard){
                 throw new Error('Element introuvable pour la mise à jour');
             }

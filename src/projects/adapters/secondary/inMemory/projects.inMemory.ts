@@ -21,9 +21,18 @@ export class InMemoryProjects implements IProjectsRepository {
         return newProject;
     }
 
-    async updateProject(project: IProjectCard): Promise<void> {
-        const index = this.projects.findIndex(p => p._id === project._id)
-        this.projects[index] = project;
+    async updateProject(id: string, project: IProjectCard): Promise<IProjectCard> {
+        const projectIndex = this.projects.findIndex(p => p._id === id);
+    
+        if (projectIndex !== -1) {
+            this.projects[projectIndex] = {
+                ...project,
+                _id: id,
+            };
+            return this.projects[projectIndex];
+        } else {
+            throw new Error('Projet introuvable pour la mise à jour');
+        }
     }
 
     async deleteProject(id: string): Promise<void> {

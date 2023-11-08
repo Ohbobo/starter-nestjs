@@ -8,7 +8,7 @@ export class MailController {
     @Post('send')
     async sendEmail(@Query('email') email, @Body() mailData: { email: string, name: string, phone: string, message: string }){
         const mail = {
-            to: email,
+            to: 'agentheo0@gmail.com',
             subject: 'Contact depuis portfolio',
             from: 'agentheo0@gmail.com',
             text: `Email:${mailData.email}\nName: ${mailData.name}\nPhone: ${mailData.phone}\nMessage: ${mailData.message}`,
